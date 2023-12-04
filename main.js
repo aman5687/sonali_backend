@@ -3,6 +3,7 @@ const express = require('express')
 const session = require("express-session");
 const mongoose = require("mongoose");
 const app = express()
+const cors = require("cors");
 const port = process.env.PORT || 4000
 
 app.listen(port, () => console.log(`Example app listening on port http://localhost:${port}`))
@@ -36,6 +37,7 @@ app.use((req, res, next)=>{
     next();
 })
 
+app.use(cors());
 app.set("view engine", "ejs")
 
 app.use("", require("./routes/routes"));
